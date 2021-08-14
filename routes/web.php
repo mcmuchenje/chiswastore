@@ -16,17 +16,52 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/product/create', [ProductController::class, 'create']);
-Route::post('/product', [ProductController::class, 'store'])->name('test.store');
+
 
 require __DIR__.'/auth.php';
+
+
+// Admin routes
+
+Route::get('/admin', [ProductController::class, 'index'])->middleware('auth')->name('products.index');
+Route::get('/admin/products', [ProductController::class, 'show'])->middleware('auth')->name('products.show');
+Route::get('/admin/product/create', [ProductController::class, 'create'])->middleware('auth')->name('product.create');
+Route::post('/admin/product', [ProductController::class, 'store'])->name('product.store')->middleware('auth');
+
+Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index')->middleware('auth');
+Route::get('/admin/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');
+Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store')->middleware('auth');
+
+Route::get('/admin/customers', function () {
+    return ['page' => 'customers'];
+})->name('customers.index')->middleware('auth');
+
+Route::get('/admin/orders', function () {
+    return ['page' => 'orders'];
+})->name('orders.index')->middleware('auth');
+
+Route::get('/admin/users', function () {
+    return ['page' => 'users'];
+})->name('users.index')->middleware('auth');
+
+
+// Store Front routes
+
+Route::get('/', function () {
+    return redirect('/shop');
+});
+
+Route::get('/shop', [StoreController::class, 'index'])->name('shop.index');
+Route::get('/shop/cart', [CartController::class, 'show'])->name('cart.show');
+Route::post('/shop/cart', [CartController::class, 'store'])->name('cart.store');
+Route::get('/shop/checkout', [StoreController::class, 'show'])->name('shop.checkout');
+
+Route::get('/my-account', function () {
+    return view('store/myaccount');
+})->name('myaccount');
 
 
