@@ -40,6 +40,7 @@ jobs:
             sudo rm -rf chiswastore
             sudo git clone https://github.com/mcmuchenje/chiswastore.git
             sudo chown -R www-data:www-data chiswastore
+            chmod -R 777 storage bootstrap/cache
             cd chiswastore
             sudo php -r "file_exists('.env') || copy('.env.ci', '.env');"
             sudo composer install
