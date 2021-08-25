@@ -84,7 +84,7 @@
     </div>
     <div class="container">
         <nav class="navbar navbar-expand-lg"> 
-            <a class="navbar-brand" href="index.html">
+             <a class="navbar-brand" href="{{ route('shop.index')}}">
                 <img class="logo_light" src="/store/images/chiswastore.png" alt="logo" />
                 <img class="logo_dark" src="/store/images/chiswastore.png" alt="logo" />
                 <img class="logo_default" src="/store/images/chiswastore.png" alt="logo" />
@@ -166,7 +166,7 @@
             <div class="row">
                 <div class="col-lg-4">
                 	<div class="footer_logo">
-                    	<a href="index.html"><img alt="logo" src="/store/images/chiswastore.png"></a>
+                       	<a href="{{ route('shop.index')}}"><img alt="logo" src="/store/images/chiswastore.png"></a>
                     </div>
                     <div class="footer_desc">
                     	<p>Chiswamusango store is a family owned comapny located at Gweshe Business Centre in Glendale Chisweshe. Our objective is to provide world class customer service</p>
