@@ -40,7 +40,7 @@ jobs:
             sudo git clone https://github.com/mcmuchenje/chiswastore.git
             sudo chown -R www-data:www-data chiswastore
             cd chiswastore
-            sudo cat <<EOF >./.env
+            sudo cat <<EOF >.env
             secretGenerator:
             APP_NAME=Laravel
             APP_ENV=local
