@@ -26,7 +26,6 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
   deploy:
     runs-on: ubuntu-latest
-    needs: laravel-tests
     steps:
       - name: Deploy Laravel app
         uses: appleboy/ssh-action@master
