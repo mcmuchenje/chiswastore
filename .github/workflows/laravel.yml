@@ -41,7 +41,7 @@ jobs:
             echo 'Deployment successful to digital ocean'
             cd chiswastore
             sudo composer install
-            sudo cp httpd.conf /etc/apache2/sites-avaliable
+            sudo cp httpd.conf /etc/apache2/sites-available/httpd.conf
             sudo ln -s /etc/apache2/sites-avaliable/httpd.conf /etc/apache2/sites-enabled/httpd.conf
             sudo systemctl reload apache2
 
