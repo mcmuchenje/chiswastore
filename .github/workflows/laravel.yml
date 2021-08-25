@@ -30,13 +30,6 @@ jobs:
     steps:
       - name: Deploy Laravel app
         uses: appleboy/ssh-action@master
-        env:
-          DB_CONNECTION=mysql
-          DB_HOST=134.209.225.255
-          DB_PORT=3306
-          DB_DATABASE=test
-          DB_USERNAME=paymeuser
-          DB_PASSWORD=52Q9JJso2Dw1WrFIO0VK
         with:
           host: ${{secrets.SSH_HOST}} # IP address of the server you wish to ssh into
           key: ${{secrets.SSH_KEY}} # Private or public key of the server
@@ -48,6 +41,7 @@ jobs:
             sudo git clone https://github.com/mcmuchenje/chiswastore.git
             sudo chown -R www-data:www-data chiswastore
             cd chiswastore
+            php -r "file_exists('.env') || copy('.env.ci', '.env');"
             php artisan key:generate   
             composer install
             sudo rm -rf /etc/apache2/sites-available/httpd.conf /etc/apache2/sites-enabled/httpd.conf
