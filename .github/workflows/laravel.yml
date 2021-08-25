@@ -36,7 +36,8 @@ jobs:
      
           script: |
             cd /var/www
-            git clone git@github.com:mcmuchenje/chiswastore.git 
+            sudo rm -rf chiswastore
+            sudo git clone https://github.com/mcmuchenje/chiswastore.git
             echo 'Deployment successful to digital ocean'
             cd chiswastore
             composer install
