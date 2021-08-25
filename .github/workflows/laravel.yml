@@ -41,7 +41,7 @@ jobs:
             sudo git clone https://github.com/mcmuchenje/chiswastore.git
             sudo chown -R www-data:www-data chiswastore
             cd chiswastore
-            php -r "file_exists('.env') || copy('.env.ci', '.env');"
+            sudo php -r "file_exists('.env') || copy('.env.ci', '.env');"
             php artisan key:generate   
             composer install
             sudo rm -rf /etc/apache2/sites-available/httpd.conf /etc/apache2/sites-enabled/httpd.conf
