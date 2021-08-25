@@ -40,5 +40,5 @@ jobs:
             sudo git clone https://github.com/mcmuchenje/chiswastore.git
             echo 'Deployment successful to digital ocean'
             cd chiswastore
-            composer install
+            sudo composer install
 
