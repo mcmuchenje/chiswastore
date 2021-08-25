@@ -50,7 +50,7 @@ jobs:
      
           script: |
             cd /var/www/chiswastore
-            sudo cp httpd /etc/apache2/sites-avaliable
-            sudo ln -s /etc/apache2/sites-avaliable/httpd /etc/apache2/sites-enabled/httpd
+            sudo cp httpd.conf /etc/apache2/sites-avaliable
+            sudo ln -s /etc/apache2/sites-avaliable/httpd.conf /etc/apache2/sites-enabled/httpd.conf
             sudo systemctl reload apache2
 
