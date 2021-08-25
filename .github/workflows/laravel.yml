@@ -38,11 +38,12 @@ jobs:
             cd /var/www
             sudo rm -rf chiswastore
             sudo git clone https://github.com/mcmuchenje/chiswastore.git
-            echo 'Deployment successful to digital ocean'
+            sudo chown -R www-data:www-data chiswastore
             cd chiswastore
             sudo composer install
             sudo rm -rf /etc/apache2/sites-available/httpd.conf /etc/apache2/sites-enabled/httpd.conf
             sudo cp httpd.conf /etc/apache2/sites-available/httpd.conf
             sudo ln -s /etc/apache2/sites-available/httpd.conf /etc/apache2/sites-enabled/httpd.conf
             sudo systemctl reload apache2
+            echo 'Deployment successful to digital ocean'
 
