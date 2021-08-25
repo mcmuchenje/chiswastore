@@ -48,5 +48,6 @@ jobs:
             sudo cp httpd.conf /etc/apache2/sites-available/httpd.conf
             sudo ln -s /etc/apache2/sites-available/httpd.conf /etc/apache2/sites-enabled/httpd.conf
             sudo systemctl reload apache2
+            sudo ../ && sudo chown -R www-data:www-data chiswastore
             echo 'Deployment successful to digital ocean'
 
