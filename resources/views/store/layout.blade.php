@@ -16,6 +16,7 @@
 <!-- Animation CSS -->
 <link rel="stylesheet" href="/store/css/animate.css">	
 <!-- Latest Bootstrap min CSS -->
+
 <link rel="stylesheet" href="/store/bootstrap/css/bootstrap.min.css">
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css?family=Lobster+Two:400,700" rel="stylesheet">  
@@ -38,6 +39,11 @@
 <link rel="stylesheet" href="/store/css/style.css">
 <link rel="stylesheet" href="/store/css/responsive.css">
 <link rel="stylesheet" id="layoutstyle" href="/store/color/theme-default.css">
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+
+{{-- <link rel="stylesheet" href="/css/global.css"> --}}
 
 </head>
 
@@ -142,17 +148,9 @@
 <!-- END HEADER --> 
 
 <!-- START SECTION BANNER -->
-<section class="bg_light_yellow breadcrumb_section background_bg bg_fixed bg_size_contain" data-img-src="/store/images/breadcrumb_bg.png">
-	<div class="container">
-    	<div class="row align-items-center">
-        	<div class="col-sm-12 text-center">
-            	<div class="page-title">
-            		<h1>Chiswa Grocery and Sports Bar</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+@yield('banner')
+
 <!-- END SECTION BANNER -->
 
 @yield('content')
@@ -326,6 +324,9 @@
 <script src="/store/js/js.cookie.js"></script>
 <!-- scripts js --> 
 <script src="/store/js/scripts.js"></script>
+
+{{-- stripe js --}}
+<script src="/js/stripe.js"></script>
 
 </body>
 </html>

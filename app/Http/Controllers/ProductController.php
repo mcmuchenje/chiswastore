@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 
 use Illuminate\Http\Request;
@@ -39,7 +40,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin/productcreate');
+        return view('admin/productcreate' , [
+            'categories' => Category::all()
+        ]);
     }
 
     public function store(Request $request) {

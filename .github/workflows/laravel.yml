@@ -26,6 +26,7 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
   deploy:
     runs-on: ubuntu-latest
+    needs: laravel-tests
     steps:
       - name: Deploy Laravel app
         uses: appleboy/ssh-action@master
@@ -41,7 +42,6 @@ jobs:
             sudo chown -R www-data:www-data chiswastore
             cd chiswastore
             sudo cat <<EOF >.env
-            secretGenerator:
             APP_NAME=Laravel
             APP_ENV=local
             APP_KEY=base64:tb8AW7sZt98RVYEo0KsMOkFDWITMy4+U1TSosRacfeg=

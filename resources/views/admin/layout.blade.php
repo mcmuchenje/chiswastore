@@ -1,70 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="/css/bulma.min.css">
-  </head>
-  <body>
-	<nav class="navbar" role="navigation" aria-label="main navigation">
-		<div class="navbar-brand">
-		  <a class="navbar-item" href="https://bulma.io">
-			<img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-		  </a>
-	  
-		  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-			<span aria-hidden="true"></span>
-			<span aria-hidden="true"></span>
-			<span aria-hidden="true"></span>
-		  </a>
-		</div>
-	  
-		<div id="navbarBasicExample" class="navbar-menu">
-		
-		  </div>
-	  
-		  <div class="navbar-end">
-			  <a href="" class="bd-tw-button button">
-				<span class="icon">
-					<i class="fab fa-twitter"></i>
-				</span>
-			  </a>
-			
-		  </div>
-		</div>
-	  </nav>
-	  <div>
-		  <div class="columns mt-5">
-			  <div class="column is-2 ml-5">
-				<aside class="menu">
-					<p class="menu-label">
-					  General
-					</p>
-					<ul class="menu-list">
-					  <li><a href="{{ route('products.index') }}">Dashboard</a></li>
-					  <li><a href="{{ route('customers.index') }}">Customers</a></li>
-					</ul>
-					<p class="menu-label">
-					  Store
-					</p>
-					<ul class="menu-list">
-					  <li><a href="{{ route('products.index') }}">Products</a></li>
-                      <li><a href="{{ route('orders.index') }}">Orders</a></li>
-					  <li><a href="{{ route('category.index') }}">Category</a></li>
-					</ul>
-					<p class="menu-label">
-					  Admin
-					</p>
-					<ul class="menu-list">
-					  <li><a href="{{ route('products.index') }}">Users</a></li>
-					</ul>
-				  </aside>
-			  </div>
-			    @yield('content')
-			  </div>
-		  </div>
+<head>
+	<meta charset="utf-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<title></title>
+	<style type="text/css">
+		a {
+			color: #555;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-light bg-scondary" style="background-color: #e2e3e5; border: 1px solid rgba(0,0,0,.125);">
+	  <div class="container-fluid">
+	    <span class="navbar-brand mb-0 h1">Admin Panel</span>
+	    <button class="btn btn-outline-success btn-sm" type="submit">Munyaradzi</button>
 	  </div>
-	  
-  </body>
+	</nav>
+	<div>
+		<div class="row">
+			<div class="col col-lg-2">
+				<div class="mt-2 px-2">
+					<ul class="list-group">
+					  <li class="list-group-item list-group-item-secondary">General</li>
+					  <a href=""><li class="list-group-item">Dashboard</li></a>
+					  <a href=""><li class="list-group-item">Customers</li></a>
+					</ul>
+				</div>
+				<div class="mt-2 px-2">
+					<ul class="list-group">
+					  <li class="list-group-item list-group-item-secondary">Store</li>
+					  <a href=""><li class="list-group-item active">Products</li></a>
+					  <a href=""><li class="list-group-item">Orders</li></a>
+					  <a href=""><li class="list-group-item">Categories</li></a>
+					</ul>
+				</div>
+				<div class="mt-2 px-2">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-secondary">Users</li>
+				  		<a href=""><li class="list-group-item">Admins</li></a>
+					</ul>
+				</div>
+			</div>
+			<div class="col">
+				@yield('content')
+			</div>			
+		</div>
+			
+	</div>
+</body>
 </html>

@@ -1,13 +1,27 @@
 @extends('store/layout')
 
+@section('banner')
+<section class="bg_light_yellow breadcrumb_section background_bg bg_fixed bg_size_contain" data-img-src="/store/images/breadcrumb_bg.png" style="background-image: url(&quot;/store/images/breadcrumb_bg.png&quot;); background-position: center center; background-size: cover;">
+	<div class="container">
+    	<div class="row align-items-center">
+        	<div class="col-sm-12 text-center">
+            	<div class="page-title">
+            		<h1>Cart</h1>
+                </div>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="{{ route('shop.index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('shop.index')}}">Shop</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                  </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection
+
 @section('content')
-
-{{-- {{ ddd(Cart::content()) }} --}}
-
-@foreach (Cart::content() as $item)
-    <p>{{ $item->model->name }}</p>
-@endforeach
-    
 
 <section>
     <div class="container">
@@ -39,7 +53,7 @@
                                 <td class="product-remove" data-title="Remove"><a href="#"><i class="ti-close"></i></a></td>
                             </tr>
                             <tr>
-                            	<td class="product-thumbnail"><a href="#"><img src="assets/images/product_img2.jpg" alt="product2"></a></td>
+                            	<td class="product-thumbnail"><a href="#"><img src="/store/images/images/product_img2.jpg" alt="product2"></a></td>
                                 <td class="product-name" data-title="Product"><a href="#">Fresh Organic Grapes</a></td>
                                 <td class="product-price" data-title="Price">$40.00</td>
                                 <td class="product-quantity" data-title="Quantity"><div class="quantity">
@@ -51,7 +65,7 @@
                                 <td class="product-remove" data-title="Remove"><a href="#"><i class="ti-close"></i></a></td>
                             </tr>
                             <tr>
-                            	<td class="product-thumbnail"><a href="#"><img src="assets/images/product_img3.jpg" alt="product3"></a></td>
+                            	<td class="product-thumbnail"><a href="#"><img src="/store/images/images/product_img3.jpg" alt="product3"></a></td>
                                 <td class="product-name" data-title="Product"><a href="#">Fresh Organic Cucumber</a></td>
                                 <td class="product-price" data-title="Price">$52.00</td>
                                 <td class="product-quantity" data-title="Quantity"><div class="quantity">

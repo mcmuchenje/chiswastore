@@ -6,51 +6,34 @@
   <div>
       <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data" class="box">
         @csrf
-          <div class="field">
-            <label class="label">Product Name</label>
-            <div class="control">
-              <input class="input" type="text"  name="name" placeholder="e.g. Pfuko Maheu">
-            </div>
-          </div>
+        <div class="form-group">
+          <label for="name">Product Name</label>
+          <input type="text" class="form-control" id="name" name="amount" placeholder="eg. Pfuko Maheu">
+        </div>
         
-          <div class="field">
-            <label class="label">Amount</label>
-            <div class="control">
-              <input class="input" type="number" name="amount" min="1" step="any" placeholder="4.99">
-            </div>
-          </div>
+        <div class="form-group">
+          <label for="amount">Product Name</label>
+            <input class="form-control" type="number" id="amount" name="amount" min="1" step="any" placeholder="4.99">
+        </div>
 
           <div class="field">
             <label for="category" class="label">Category</label>
-            <div class="dropdown">
-              <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                  <span>Category</span>
-                  <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </div>
-              <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                  <a href="#" class="dropdown-item">
-                    Food
-                  </a>
-                  <a class="dropdown-item">
-                    Drinks
-                  </a>
-                </div>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Choose...</option>
+                @foreach($categories as $category)
+                 <option value="1">{{ $category->name }}</option>
+                @endforeach
+              </select>
             </div>                     
           </div>
 
-          <div class="field">
-            <label class="label">Image</label>
-            <div class="control">
-              <input class="input" type="file" name="image" placeholder="4.99">
-            </div>
+          <div class="form-group">
+            <label for="image">Product Name</label>
+              <input class="form-control" type="file" id="image" name="image">
           </div>
-        
-          <button class="button is-primary">Create</button>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Create</button>
+          </div>
         </form>
   </div>
 </div>
