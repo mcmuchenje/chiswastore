@@ -33,7 +33,6 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
