@@ -63,5 +63,8 @@ class ProductController extends Controller
             'image' => $imageName
         ]);
 
+        return redirect()->route('products.show')
+            ->with('success', 'Product created successfully.');
+
     }
 }

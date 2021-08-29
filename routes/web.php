@@ -30,7 +30,7 @@ require __DIR__.'/auth.php';
 Route::get('/admin', [ProductController::class, 'index'])->middleware('auth')->name('products.index');
 Route::get('/admin/products', [ProductController::class, 'show'])->middleware('auth')->name('products.show');
 Route::get('/admin/product/create', [ProductController::class, 'create'])->middleware('auth')->name('product.create');
-Route::post('/admin/product', [ProductController::class, 'store'])->name('product.store')->middleware('auth');
+Route::post('/admin/product', [ProductController::class, 'store'])->middleware('auth')->name('product.store');
 
 Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index')->middleware('auth');
 Route::get('/admin/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');
