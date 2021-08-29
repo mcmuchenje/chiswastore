@@ -1,7 +1,7 @@
 @extends('admin/layout')
 
 @section('content')
-<a href="" class=" mt-2 px-2 btn btn-primary">New Category</a>
+<a href="{{ route('category.create') }}" class=" mt-2 px-2 btn btn-primary">New Category</a>
 				<div class="mt-2 px-2">
 					<table class="table">
 					  <thead>

@@ -30,22 +30,23 @@ require __DIR__.'/auth.php';
 Route::get('/admin', [ProductController::class, 'index'])->middleware('auth')->name('products.index');
 Route::get('/admin/products', [ProductController::class, 'show'])->middleware('auth')->name('products.show');
 Route::get('/admin/product/create', [ProductController::class, 'create'])->middleware('auth')->name('product.create');
+Route::get('/admin/product/edit', [ProductController::class, 'edit'])->middleware('auth')->name('product.edit');
 Route::post('/admin/product', [ProductController::class, 'store'])->middleware('auth')->name('product.store');
 
-Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index')->middleware('auth');
+Route::get('/admin/category', [CategoryController::class, 'index'])->middleware('auth')->name('category.index');
 Route::get('/admin/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');
 Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store')->middleware('auth');
 
 Route::get('/admin/customers', function () {
-    return ['page' => 'customers'];
+    return ['message' => 'page not yet created, kindly go back'];
 })->name('customers.index')->middleware('auth');
 
 Route::get('/admin/orders', function () {
-    return ['page' => 'orders'];
+    return ['message' => 'page not yet created, kindly go back'];
 })->name('orders.index')->middleware('auth');
 
 Route::get('/admin/users', function () {
-    return ['page' => 'users'];
+    return ['message' => 'page not yet created, kindly go back'];
 })->name('users.index')->middleware('auth');
 
 

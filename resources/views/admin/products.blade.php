@@ -22,7 +22,7 @@
 					      <td>{{ $product->name }}</td>
 					      <td>{{ $product->amount }}</td>
 					      <td>{{ $product->image }}</td>
-					      <td><a href="" class="btn btn-sm btn-warning">Edit</a></td>
+					      <td><a href="{{ route('product.edit' , $product->id) }}" class="btn btn-sm btn-warning">Edit</a></td>
 					      <td><a href="" class="btn btn-sm btn-danger">Remove</a></td>
 					    </tr>
 						@endforeach

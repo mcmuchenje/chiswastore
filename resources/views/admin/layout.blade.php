@@ -15,7 +15,7 @@
 	<nav class="navbar navbar-light bg-scondary" style="background-color: #e2e3e5; border: 1px solid rgba(0,0,0,.125);">
 	  <div class="container-fluid">
 	    <span class="navbar-brand mb-0 h1">Admin Panel</span>
-	    <button class="btn btn-outline-success btn-sm" type="submit">Munyaradzi</button>
+   	    <button class="btn btn-outline-success btn-sm" type="submit">{{ Auth::user()->name }}</button>
 	  </div>
 	</nav>
 	<div>
@@ -24,22 +24,22 @@
 				<div class="mt-2 px-2">
 					<ul class="list-group">
 					  <li class="list-group-item list-group-item-secondary">General</li>
-					  <a href=""><li class="list-group-item">Dashboard</li></a>
-					  <a href=""><li class="list-group-item">Customers</li></a>
+					  <a href="{{ route('products.index') }}"><li class="list-group-item {{ Route::is('products.index') ? 'active' : ''  }}">Dashboard</li></a>
+					  <a href="{{ route('customers.index') }}"><li class="list-group-item {{ Route::is('customers.index') ? 'active' : ''  }}">Customers</li></a>
 					</ul>
 				</div>
 				<div class="mt-2 px-2">
 					<ul class="list-group">
 					  <li class="list-group-item list-group-item-secondary">Store</li>
-					  <a href=""><li class="list-group-item active">Products</li></a>
-					  <a href=""><li class="list-group-item">Orders</li></a>
-					  <a href=""><li class="list-group-item">Categories</li></a>
+					  <a href="{{ route('products.show') }}"><li class="list-group-item {{ Route::is('products.show') ? 'active' : ''  }}">Products</li></a>
+					  <a href="{{ route('orders.index') }}"><li class="list-group-item {{ Route::is('orders.index') ? 'active' : ''  }}">Orders</li></a>
+					  <a href="{{ route('category.index') }}"><li class="list-group-item {{ Route::is('category.index') ? 'active' : ''  }}">Categories</li></a>
 					</ul>
 				</div>
 				<div class="mt-2 px-2">
 					<ul class="list-group">
 						<li class="list-group-item list-group-item-secondary">Users</li>
-				  		<a href=""><li class="list-group-item">Admins</li></a>
+				  		<a href="{{ route('users.index') }}"><li class="list-group-item {{ Route::is('users.index') ? 'active' : ''  }}">Admins</li></a>
 					</ul>
 				</div>
 			</div>

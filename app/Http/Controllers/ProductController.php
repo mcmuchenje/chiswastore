@@ -25,9 +25,7 @@ class ProductController extends Controller
     
     public function index()
     {
-        return view('admin/products', [
-            'products' => Product::all()
-        ]);
+            return ['message' => 'page not yet created kindly go back'];
     }
 
     public function show()
@@ -66,5 +64,22 @@ class ProductController extends Controller
         return redirect()->route('products.show')
             ->with('success', 'Product created successfully.');
 
+    }
+
+    public function edit(Product $product)
+    {
+        ddd($product);
+        return view('admin/productedit', [
+            'product' => Product::findOrFail($product)
+
+        ]);
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+    
+        return redirect()->route('products.index')
+                        ->with('success','Product deleted successfully');
     }
 }
