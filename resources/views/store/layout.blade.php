@@ -121,7 +121,7 @@
                     </div>
                 </li>
                 <li class="dropdown cart_wrap">
-                    <a class="nav-link" href="#" data-toggle="dropdown"><i class="ion-bag"></i><span class="cart_count">{{ Cart::count() }}</span></a>
+                    <a class="nav-link" href="/shop/cart" data-toggle="dropdown"><i class="ion-bag"></i><span class="cart_count">{{ Cart::count() }}</span></a>
                 </li>
             </ul>
         </nav>
@@ -172,20 +172,6 @@
                     	<li><a href="#">Delivery Information</a></li>
                         <li><a href="#">Secure Payment</a></li>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Top Sellers</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Our Sitemap</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4">
-                	<h5 class="widget_title">Customer Support</h5>
-                    <ul class="list_none widget_links">
-                    	<li><a href="#">My Account</a></li>
-                        <li><a href="#">Shopping Cart</a></li>
-                        <li><a href="#">Addresses</a></li>
-                        <li><a href="#">Discount</a></li>
-                        <li><a href="#">Orders History</a></li>
-                        <li><a href="#">Order Tracking</a></li>
                     </ul>
                 </div>
             </div>
@@ -229,8 +215,7 @@
     	<div class="container">
         	<div class="row align-items-center">
             	<div class="col-lg-4">
-                    <p class="copyright m-lg-0 text-center">Copyright © 2021 All Rights Reserved </p>
-                </div>
+                    <p class="copyright m-lg-0 text-center">made with ❤️ & 🍺 by <a href="https://twitter.com/munyac">munyac</a> </p>                </div>
                 <div class="col-lg-4 order-lg-first">
                     <ul class="list_none footer_payment text-center text-lg-left">
                         <li><a href="#"><img src="/store/images/visa.png" alt="visa"/></a></li>
