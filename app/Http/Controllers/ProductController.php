@@ -50,10 +50,8 @@ class ProductController extends Controller
         $response = cloudinary()->upload(
             $request->file('file')->getRealPath(), [
             'transformation' => [
-                'gravity' => 'auto',
                 'width' => 230,
-                'height' => 160,
-                'crop' => 'crop'
+                'height' => 160
             ]
         ])->getSecurePath();
            
