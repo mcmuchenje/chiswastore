@@ -29,20 +29,20 @@ Route::get('/admin', [ProductController::class, 'index'])->name('products.index'
 // ADMIN Products routes
 
 Route::get('/admin/products', [ProductController::class, 'index'])->name('products.index')->middleware(['auth']);
-Route::get('/admin/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::post('/admin/products', [ProductController::class, 'store'])->name('products.store');
-Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('products.update');
-Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/admin/products/create', [ProductController::class, 'create'])->name('products.create')->middleware(['auth']);
+Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit')->middleware(['auth']);
+Route::post('/admin/products', [ProductController::class, 'store'])->name('products.store')->middleware(['auth']);
+Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('products.update')->middleware(['auth']);
+Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware(['auth']);
 
 // ADMIN Category Routes 
 
-Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('category.create');
-Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store');
-Route::get('/admin/category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
-Route::put('/admin/category/{category}', [CategoryController::class, 'update'])->name('category.update');
-Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy'])->name('category.delete');
+Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index')->middleware(['auth']);
+Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('category.create')->middleware(['auth']);
+Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store')->middleware(['auth']);
+Route::get('/admin/category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit')->middleware(['auth']);
+Route::put('/admin/category/{category}', [CategoryController::class, 'update'])->name('category.update')->middleware(['auth']);
+Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy'])->name('category.delete')->middleware(['auth']);
 
 // ADMIN Users routes
 
