@@ -26,7 +26,33 @@ class CategoryController extends Controller
 
         return redirect()->route('category.index')
                         ->with('success','Category created successfully');
+    }
+
+    public function edit(Category $category) 
+    {
+        return view('admin/categoryedit', [
+            'category' => $category
+        ]);
+    }
 
 
+    public function update(Request $request, Category $category) 
+    {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $category->update($request->all());
+
+        return redirect()->route('category.index')
+                        ->with('success','Category updated successfully');
+    }
+
+    public function destroy(Category $category)
+    {
+        $category->delete();
+
+        return redirect()->route('category.index')
+                        ->with('success','Category deleted successfully');
     }
 }

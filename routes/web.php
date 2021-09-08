@@ -24,30 +24,39 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/admin', [ProductController::class, 'index'])->name('products.index');
 
-// Admin routes
+// ADMIN Products routes
 
-Route::get('/admin', [ProductController::class, 'index'])->middleware('auth')->name('products.index');
-Route::get('/admin/products', [ProductController::class, 'show'])->middleware('auth')->name('products.show');
-Route::get('/admin/product/create', [ProductController::class, 'create'])->middleware('auth')->name('product.create');
-Route::get('/admin/product/edit', [ProductController::class, 'edit'])->middleware('auth')->name('product.edit');
-Route::post('/admin/product', [ProductController::class, 'store'])->middleware('auth')->name('product.store');
+Route::get('/admin/products', [ProductController::class, 'index'])->name('products.index')->middleware(['auth']);
+Route::get('/admin/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::post('/admin/products', [ProductController::class, 'store'])->name('products.store');
+Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
-Route::get('/admin/category', [CategoryController::class, 'index'])->middleware('auth')->name('category.index');
-Route::get('/admin/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');
-Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store')->middleware('auth');
+// ADMIN Category Routes 
+
+Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/admin/category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+Route::put('/admin/category/{category}', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy'])->name('category.delete');
+
+// ADMIN Users routes
 
 Route::get('/admin/customers', function () {
     return ['message' => 'page not yet created, kindly go back'];
-})->name('customers.index')->middleware('auth');
+})->name('customers.index');
 
 Route::get('/admin/orders', function () {
     return ['message' => 'page not yet created, kindly go back'];
-})->name('orders.index')->middleware('auth');
+})->name('orders.index');
 
 Route::get('/admin/users', function () {
     return ['message' => 'page not yet created, kindly go back'];
-})->name('users.index')->middleware('auth');
+})->name('users.index');
 
 
 // Store Front routes
@@ -56,10 +65,13 @@ Route::get('/', function () {
     return redirect('/shop');
 });
 
-Route::get('/shop', [StoreController::class, 'index'])->name('shop.index');
-Route::get('/shop/cart', [CartController::class, 'show'])->name('cart.show');
+Route::get('/shop', [StoreController::class, 'index'])->name('store.index');
+Route::get('/shop/checkout', [StoreController::class, 'show'])->name('store.show');
+
+// Cart Routes
+
+Route::get('/shop/cart', [CartController::class, 'index'])->name('cart.show');
 Route::post('/shop/cart', [CartController::class, 'store'])->name('cart.store');
-Route::get('/shop/checkout', [StoreController::class, 'show'])->name('shop.checkout');
 
 Route::get('/my-account', function () {
     return view('store/myaccount');

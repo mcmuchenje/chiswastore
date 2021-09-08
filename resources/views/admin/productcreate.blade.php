@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container mt-5 mr-5">
-  <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
+  <form method="POST" action="/admin/products" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group">
@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-group mt-2">
-      <input type="file" class="form-control-file" id="image" name="image">
+      <input type="file" class="form-control-file" id="file" name="file">
     </div>     
 
     <div class="mt-2">

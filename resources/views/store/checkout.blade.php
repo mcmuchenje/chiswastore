@@ -11,8 +11,8 @@
                 </div>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="{{ route('shop.index') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('shop.index') }}">Shop</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('store.index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('store.index') }}">Shop</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Checkout</li>
                   </ol>
                 </nav>
@@ -390,23 +390,17 @@
                           </tr>
                       </thead>
                       <tbody>
+                          @foreach( Cart::content() as $cart )
                         <tr>
-                              <td>Fresh Organic Strawberry <span class="product-qty">x 2</span></td>
-                              <td>$70.00</td>
+                              <td>{{ $cart->name }} <span class="product-qty">x {{ $cart->qty }}</span></td>
+                              <td>${{ $cart->subtotal }}</td>
                           </tr>
-                          <tr>
-                              <td>Fresh Organic Grapes <span class="product-qty">x 1</span></td>
-                              <td>$40.00</td>
-                          </tr>
-                          <tr>
-                              <td>Fresh Organic Cucumber <span class="product-qty">x 3</span></td>
-                              <td>$156.00</td>
-                          </tr>
+                          @endforeach
                       </tbody>
                       <tfoot>
                         <tr>
                             <th>SubTotal</th>
-                              <td class="product-subtotal">$266.00</td>
+                              <td class="product-subtotal">${{ Cart::total() }}</td>
                           </tr>
                           <tr>
                             <th>Shipping</th>
@@ -414,7 +408,7 @@
                           </tr>
                         <tr>
                             <th>Total</th>
-                              <td class="product-subtotal">$266.00</td>
+                              <td class="product-subtotal">${{ Cart::total() }}</td>
                           </tr>
                       </tfoot>
                   </table>

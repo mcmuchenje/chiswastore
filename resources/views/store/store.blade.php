@@ -1,6 +1,7 @@
 @extends('store/layout')
 
 @section('banner')
+
 <section class="bg_light_yellow breadcrumb_section background_bg bg_fixed bg_size_contain" data-img-src="/store/images/breadcrumb_bg.png" style="background-image: url(&quot;/store/images/breadcrumb_bg.png&quot;); background-position: center center; background-size: cover;">
 	<div class="container">
     	<div class="row align-items-center">
@@ -58,12 +59,19 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="product">
                             <div class="product_img">
-                                <a href="#"><img src="images/{{ $product->image }}" alt="{{ $product->name }}"></a>
+                                <a href="#"><img src="{{ $product->image }}" alt="{{ $product->name }}"></a>
                             </div>
                             <div class="product_info">
                                 <h6><a href="#">{{ $product->name }}</a></h6>
                                  <span class="price">${{ $product->amount }}</span>
                             </div>
+                            <form action="{{ route('cart.store') }}" method="POST">
+                                @csrf 
+                                <input type="hidden" id="custId" name="id" value="{{ $product->id }}">
+                                <input type="hidden" id="custId" name="name" value="{{ $product->name }}">
+                                <input type="hidden" id="custId" name="price" value="{{ $product->amount }}">
+                                <button>Add to cart</button>
+                            </form>
                         </div>
                     </div>
                     @endforeach

@@ -3,8 +3,9 @@
 @section('content')
 
 <div class="container mt-5 mr-5">
-  <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
+  <form method="POST" action="/admin/products/{{ $product->id }}" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
 
     <div class="form-group">
       <label for="name">Product Name</label>
@@ -27,11 +28,11 @@
     </div>
 
     <div class="form-group mt-2">
-      <input type="file" class="form-control-file" value="{{ $product->name }}" id="image" name="image">
+      <input type="file" class="form-control-file" value="{{ $product->name }}" id="file" name="file">
     </div>     
 
     <div class="mt-2">
-      <button type="submit" class="btn btn-primary">Create</button>
+      <button type="submit" class="btn btn-warning">Update</button>
     </div>
   </form>
 </div>

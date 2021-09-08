@@ -78,8 +78,8 @@
                           <a class="dropdown-toggle" href="#" data-toggle="dropdown">My Account</a>
                           <div class="dropdown-menu shadow dropdown-menu-right">
                             <ul>
-                                <li><a class="dropdown-item" href="{{ route('myaccount') }}">My account</a></li>
-                                <li><a class="dropdown-item" href="{{ route('shop.checkout')}}">Checkout</a></li>
+                                <li><a class="dropdown-item" href="/my-account">My account</a></li>
+                                <li><a class="dropdown-item" href="/shop/checkout">Checkout</a></li>
                             </ul>
                           </div>
                         </li>
@@ -90,7 +90,7 @@
     </div>
     <div class="container">
         <nav class="navbar navbar-expand-lg"> 
-             <a class="navbar-brand" href="{{ route('shop.index')}}">
+             <a class="navbar-brand" href="/">
                 <img class="logo_light" src="/store/images/chiswastore.png" alt="logo" />
                 <img class="logo_dark" src="/store/images/chiswastore.png" alt="logo" />
                 <img class="logo_default" src="/store/images/chiswastore.png" alt="logo" />
@@ -121,25 +121,7 @@
                     </div>
                 </li>
                 <li class="dropdown cart_wrap">
-                    <a class="nav-link" href="#" data-toggle="dropdown"><i class="ion-bag"></i><span class="cart_count">2</span></a>
-                        <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
-                                <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="/store/images/cart_thamb1.jpg" alt="cart_thumb1">Fresh Organic Strawberry</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span>78.00</span></span>
-                                </li>
-                                <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="/store/images/cart_thamb2.jpg" alt="cart_thumb2">Fresh Organic Grapes</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span>81.00</span></span>
-                                </li>
-                            </ul>
-                        <div class="cart_footer">
-                            <p class="cart_total">Total: <span class="cart_amount"> <span class="price_symbole">$</span>159.00</span></p>
-                            <p class="cart_buttons"><a href="cart.html" class="btn btn-default btn-radius view-cart">View Cart</a><a href="checkout.html" class="btn btn-dark btn-radius checkout">Checkout</a></p>
-                        </div>
-                    </div>
+                    <a class="nav-link" href="#" data-toggle="dropdown"><i class="ion-bag"></i><span class="cart_count">{{ Cart::count() }}</span></a>
                 </li>
             </ul>
         </nav>
@@ -164,10 +146,10 @@
             <div class="row">
                 <div class="col-lg-4">
                 	<div class="footer_logo">
-                       	<a href="{{ route('shop.index')}}"><img alt="logo" src="/store/images/chiswastore.png"></a>
+                       	<a href="/"><img alt="logo" src="/store/images/chiswastore.png"></a>
                     </div>
                     <div class="footer_desc">
-                    	<p>Chiswamusango store is a family owned comapny located at Gweshe Business Centre in Glendale Chisweshe. Our objective is to provide world class customer service</p>
+                    	<p>Chiswamusango store is a family owned company located at Gweshe Business Centre in Glendale Chisweshe. Our objective is to provide world class customer service</p>
                     </div>
                     <ul class="contact_info list_none">
                     	<li>

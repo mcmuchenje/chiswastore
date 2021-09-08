@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Product;
+use App\Models\Category;
 
 class CartController extends Controller
 {
@@ -14,7 +16,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return view('store/cart');
     }
 
     /**
@@ -37,7 +39,10 @@ class CartController extends Controller
     {
         Cart::add($request->id, $request->name, 1, $request->price)->associate('App\Models\Product');
         
-        return view('store/cart');
+        return view('store/store', [
+            'products' => Product::all(),
+            'categories' => Category::all()
+        ]);
     }
 
     /**

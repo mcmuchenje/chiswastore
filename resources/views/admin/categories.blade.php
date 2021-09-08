@@ -17,8 +17,14 @@
 					    <tr>
   					      <th scope="row">{{ $category->id }}</th>
 					      <td>{{ $category->name }}</td>
-					      <td><a href="" class="btn btn-sm btn-warning">Edit</a></td>
-					      <td><a href="" class="btn btn-sm btn-danger">Remove</a></td>
+					      <td><a href="/admin/category/{{ $category->id }}/edit" class="btn btn-sm btn-warning">Edit</a></td>
+  					      <td><form action="/admin/category/{{ $category->id }}" method="POST">
+							  	@csrf
+								@method('DELETE')
+
+								<button class="btn btn-sm btn-danger">Remove</button>
+							  </form>
+						  </td>
 					    </tr>
 						@endforeach
 					  </tbody>

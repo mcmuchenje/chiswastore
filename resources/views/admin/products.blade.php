@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{ route('product.create') }}" class=" mt-2 px-2 btn btn-primary">New Product</a>
+<a href="{{ route('products.create') }}" class=" mt-2 px-2 btn btn-primary">New Product</a>
 				<div class="mt-2 px-2">
 					<table class="table">
 					  <thead>
@@ -21,9 +21,14 @@
   					      <th scope="row">{{ $product->id }}</th>
 					      <td>{{ $product->name }}</td>
 					      <td>{{ $product->amount }}</td>
-					      <td>{{ $product->image }}</td>
-					      <td><a href="{{ route('product.edit' , $product->id) }}" class="btn btn-sm btn-warning">Edit</a></td>
-					      <td><a href="" class="btn btn-sm btn-danger">Remove</a></td>
+					      <td><a href="{{ $product->image }}">{{ $product->image }}</a></td>					      
+							  <form action="/admin/products/{{ $product->id }}" method="POST">
+								@csrf
+								@method('DELETE')
+
+								<td><a href="/admin/products/{{ $product->id}}/edit" class="btn btn-sm btn-warning">Edit</a></td>
+								<td><button class="btn btn-sm btn-danger">Remove</button></td>
+							  </form>
 					    </tr>
 						@endforeach
 					  </tbody>
